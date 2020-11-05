@@ -1,0 +1,55 @@
+
+<ng-sidebar-container>
+    <!--Sidebar-->
+      <ng-sidebar [opened]="opened">
+        <app-sidebar></app-sidebar>
+      </ng-sidebar>
+    
+      <div ng-sidebar-content>
+        <button (click)="toggleSidebar()" class="hamburguer" ></button>
+        <figure class="image is-480x480" >
+          <img [src]=imgHeader height="100px" class="header">
+        </figure>
+  <div style="margin-left: 50px; margin-right: 50px;">
+  <div class="table-container">
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th><abbr title="Position">Código</abbr></th>
+            <th><abbr title="Servicio">Servicio</abbr></th>
+            <th><abbr title="Prestador">Prestador de servicio</abbr></th>
+            <th><abbr title="Fechai">Fecha de inicio</abbr></th>
+            <th><abbr title="Fechaf">Fecha de fin</abbr></th>
+            <th><abbr title="Estado">Estado</abbr></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><a>1</a></th>
+            <td>Cerrajería</td>
+            <td><a>Ignacio Arévalo</a></td>
+            <td>07/05/2020</td>
+            <td>10/07/2020</td>
+            <td>Terminado</td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+      <div class="grid">
+        <p class="comment"><strong>Comentarios</strong></p>
+        <textarea class="commenttext" placeholder=""></textarea>
+        <div style="text-align:center" class="rating">
+          <p><strong>Calificación</strong></p><br>
+          <p><strong>5</strong></p>
+          
+        </div>
+        <button class="support">Pedir soporte</button>
+      </div>
+  </div>
+</div>
+
+   </div>
+   
+  </ng-sidebar-container>
+        
