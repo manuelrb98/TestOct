@@ -8,13 +8,14 @@
     </div>
     <div class="middlediv">
       <p>
-          Ingresa tu correo electrónico para recuperar tu contraseña
+          {{message}}
       </p>
 
-      <input class="input is-rounded" type="text">
+      <form #recover1Form="ngForm" (ngSubmit)="email(recover1Form)">
+      <input class="input is-rounded" type="text" name="input" ngModel>
 
-      <button>Continuar</button>
-      
+      <button type="submit">Continuar</button>
+    </form>
     </div>
    
       <div>

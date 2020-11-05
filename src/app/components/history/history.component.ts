@@ -16,6 +16,7 @@ export class HistoryComponent implements OnInit {
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
   histories: HttpEvent<history[]>;
+  history_card: history;
   constructor(private eventEmitterService: EventEmitterService , private http:MainServiceService, private router: Router) { }
 
   toggleSidebar(){ //Abrir o cerrar el manú lateral
@@ -38,9 +39,19 @@ export class HistoryComponent implements OnInit {
     }    
   }
 
-  selectedservice(){
-    //Ir all detalle del registro del historial
+  selectedservice(){//Cuando se selecciona un item del historial
+
+    //Guardar los datos del item para mostrarlos en el detalle del servicio
+    localStorage.setItem('hid','selectedid');
+    localStorage.setItem('hservice','selectedservice');
+    localStorage.setItem('hworker','selectedworker');
+    localStorage.setItem('hscore','selectedscore');
+    localStorage.setItem('hcomments','selectedcomments');
+    
+    
+
+    //Ir al detalle del registro del historial
     this.router.navigate(['/servicehistorycard']);
   }
 
-}
+} 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventEmitterService } from 'src/app/Services/event-emitter.service';
+import { MainServiceService } from 'src/app/Services/main-service.service';
 
 @Component({
   selector: 'app-worker',
@@ -11,7 +13,9 @@ export class WorkerComponent implements OnInit {
 
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
-  constructor(private eventEmitterService: EventEmitterService) { }
+
+  constructor(private eventEmitterService: EventEmitterService, private http:MainServiceService, private router: Router) { }
+
   toggleSidebar(){ //Abrir o cerrar el manú lateral
     this.opened = !this.opened;
   

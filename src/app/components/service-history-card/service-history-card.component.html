@@ -18,19 +18,16 @@
             <th><abbr title="Position">Código</abbr></th>
             <th><abbr title="Servicio">Servicio</abbr></th>
             <th><abbr title="Prestador">Prestador de servicio</abbr></th>
-            <th><abbr title="Fechai">Fecha de inicio</abbr></th>
-            <th><abbr title="Fechaf">Fecha de fin</abbr></th>
-            <th><abbr title="Estado">Estado</abbr></th>
+            <th><abbr title="Fechai">Calificación</abbr></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th><a>1</a></th>
-            <td>Cerrajería</td>
-            <td><a>Ignacio Arévalo</a></td>
-            <td>07/05/2020</td>
-            <td>10/07/2020</td>
-            <td>Terminado</td>
+            <th namee="idfield"></th>
+            <td>{{serviceid}}</td>
+            <td><a>{{servicename}}</a></td>
+            <td><button (click)="showworker()">{{serviceworker}}</button></td>
+            <td>{{servicescore}}</td>
           </tr>
          
         </tbody>
@@ -38,13 +35,13 @@
 
       <div class="grid">
         <p class="comment"><strong>Comentarios</strong></p>
-        <textarea class="commenttext" placeholder=""></textarea>
+        <textarea class="commenttext" placeholder="">{{servicecomments}}</textarea>
         <div style="text-align:center" class="rating">
-          <p><strong>Calificación</strong></p><br>
-          <p><strong>5</strong></p>
+          <p><strong></strong></p><br>
+          <p><strong></strong></p>
           
         </div>
-        <button class="support">Pedir soporte</button>
+        <!--<button class="support">Pedir soporte</button>-->
       </div>
   </div>
 </div>

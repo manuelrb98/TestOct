@@ -3,6 +3,6 @@ export class history{
     service: any;
     worker:any;
     score:any;
-   
+    comments: any;
 
 }

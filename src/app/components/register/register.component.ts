@@ -34,7 +34,7 @@ register(form: NgForm){
 
 
     if(this.mainservice.setUser(registerobj)){
-      this.router.navigate(['/home']);
+      this.router.navigate(['']);
 
       this.toastr.success('Su usuario ha sido creado!', 'Felicidades', {
         positionClass: 'toast-bottom-right',

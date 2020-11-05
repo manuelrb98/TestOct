@@ -22,14 +22,14 @@
         <thead>
         <tr>
           <th>Id</th>
-          <th>Servicio</th>
+          <th>Categoría</th>
           <th>Descripción</th>
         </tr>
         </thead>
         <tbody>
             <tr *ngFor="let hero of heroes | filter:searchText">
                 <td>{{hero.id}}</td>
-                <td><a>{{hero.name}}</a></td>
+                <td><button>{{hero.name}}</button></td>
                 <td>{{hero.country}}</td>
               </tr>
         </tbody>

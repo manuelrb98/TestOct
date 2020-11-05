@@ -9,6 +9,8 @@ import { company } from '../Model/company.model';
 import { company_collaborator } from '../Model/company_collaborator.model';
 import { service } from '../Model/service.model';
 import { history } from '../Model/history.model';
+import { category } from '../Model/category.model';
+import { contract } from '../Model/contract.model';
 
     
 
@@ -63,7 +65,16 @@ export class MainServiceService {
     //Obtener el historial de servicios del usuario en sesión
     return this.http.get<history[]>(this.Url, email); 
   }
-
+  /*getservicehistorycard(id: any){
+    //Obtener el historial de servicios del usuario en sesión
+    return this.http.get<history>(this.Url, id); 
+  }*/
+  /*getcategories(){
+    return this.http.get<category[]>(this.Url); 
+  }*/
+   getnotifications(){
+    return this.http.get<contract[]>(this.Url); 
+  }
 
 }
 

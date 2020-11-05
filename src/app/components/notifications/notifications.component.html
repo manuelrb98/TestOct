@@ -17,14 +17,11 @@
           
         </thead>
         <tbody>
-          <tr>
-            <th><a>Usuario 1 requiere tu servicio de Fontanería para la ciudad de Bogotá Dirección #### para el día 30/11/2020</a></th>
+          <tr *ngFor="let contract of contracts">
+            <th><button (click)="selectedservice()">{{contracts.user}}{{contracts.company}}{{contracts.date}}</button></th>
             
           </tr>
-          <tr>
-            <th><a>Usuario 1 requiere tu servicio de Fontanería para la ciudad de Bogotá Dirección #### para el día 30/11/2020</a></th>
            
-          </tr>
         </tbody>
       </table> 
   </div>
