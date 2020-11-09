@@ -11,6 +11,7 @@ import { service } from '../Model/service.model';
 import { history } from '../Model/history.model';
 import { category } from '../Model/category.model';
 import { contract } from '../Model/contract.model';
+import { contract_service } from '../Model/contract_service.model';
 
     
 
@@ -74,6 +75,13 @@ export class MainServiceService {
   }*/
    getnotifications(){
     return this.http.get<contract[]>(this.Url); 
+  }
+  getpaymentypes(){
+    return this.http.get<[]>(this.Url); 
+  }
+  setcontract(contract : contract_service){
+    //Agendar servicio 
+    return this.http.post<service>(this.Url, contract); 
   }
 
 }

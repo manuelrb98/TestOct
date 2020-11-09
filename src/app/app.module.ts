@@ -10,7 +10,8 @@ import { SidebarModule} from 'ng-sidebar';
 import { EventEmitterService } from './Services/event-emitter.service';
 import { LoginGuard } from './Guards/login.guard';
 import { MainServiceService } from './Services/main-service.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select'; 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -84,6 +85,7 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatSelectModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
     Ng2SearchPipeModule,

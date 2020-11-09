@@ -28,9 +28,20 @@
         </div>
         </div>
     </tr>
-         
         </tbody>
       </table>
+      <mat-form-field appearance="fill">
+        <mat-label>Método de pago</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{type.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
   </div>
 </div>
 
