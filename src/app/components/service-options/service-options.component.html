@@ -18,13 +18,12 @@
     <tr *ngFor="let service of services; let i=index">
         <div class="columns">
             <div class="column">
-            <p>{{i}}</p>
-            <p class="worker_name"><a (click)="selectservice()">{{service.name}}</a></p>
+            <p class="worker_name">{{service.name}}</p>
             <p>{{service.service}}</p>
-            <p>{{service.score}}</p>
+            <p>Calificación:{{service.score}}</p>
         </div>
         <div class="column">
-            <p class="price"><a>{{service.price}}</a></p>
+            <p class="price"><a (click)="selectservice(i)">{{service.price}}</a></p>
         </div>
         </div>
     </tr>

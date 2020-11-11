@@ -1,6 +1,7 @@
 import { HttpEvent } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { contract } from 'src/app/Model/contract.model';
 import { contract_service } from 'src/app/Model/contract_service.model';
 import { pay } from 'src/app/Model/pay.model';
 import { search } from 'src/app/Model/search.model';
@@ -24,10 +25,23 @@ export class ServiceOptionsComponent implements OnInit {
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
- 
+  f = new Date();
+  fecha=(this.f.getDate() + "/" + (this.f.getMonth() +1) + "/" + this.f.getFullYear());
+
+  name:any;
+  service: any;
+  score:any;
+  price:any;
 
   types:pay[];
   services:service_options[];
+
+  //Array de ejemplo
+  /*services:Array<service_options>=[
+    {name:"Julio",service:"Fontanería",score:"5",price:"50"},
+    {name:"Ignacio",service:"Fontanería",score:"5",price:"100"}
+
+  ];*/
   contract: contract_service;
 
   constructor(private eventEmitterService: EventEmitterService, private http:MainServiceService , private toastr: ToastrService) { }
@@ -36,7 +50,7 @@ export class ServiceOptionsComponent implements OnInit {
     this.opened = !this.opened;
   
     }
-    selectservice(){ //Cuando se selecciona una de las opciones de servicio
+    selectservice(i: any){ //Cuando se selecciona una de las opciones de servicio
 
       //Limpiar la memoria de la búsqueda realizada
       localStorage.removeItem('searchservice');
@@ -46,11 +60,15 @@ export class ServiceOptionsComponent implements OnInit {
 
       //Agendar servicio
 
-      //contract_service
-      //date
-      //user
-      //company
-      //service
+    
+      //this.contract.service=this.services[i].service;
+      //this.contract.company=this.services[i].name;
+      //this.contract.date=this.fecha;
+      //this.contract.payment=;
+      //this.contract.user=localStorage.getItem('email');
+
+      //this.http.setcontract(this.contract);
+
 
       this.toastr.success('Su servicio ha sido agendado!', 'Felicidades', {
         positionClass: 'toast-bottom-right',
@@ -67,10 +85,10 @@ export class ServiceOptionsComponent implements OnInit {
     searchobj.location = localStorage.getItem('searchlocation');
     searchobj.desc = localStorage.getItem('searchdesc');
 
-  this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
+  /*this.http.getserviceoptions(searchobj) // Enviar los parámetros de búsqueda al servicio
   .subscribe(data =>{
     this.services = data;
-  });
+  });*/
   
   this.http.getpaymentypes() // Recibir los tipos de pago del servicio y mostrárlos como opciones
   .subscribe(data =>{

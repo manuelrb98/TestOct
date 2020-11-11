@@ -24,7 +24,7 @@ export class NotificationsComponent implements OnInit {
     }
     ngOnInit() { 
       
-      this.http.getnotifications() // Obtener las notificaciones del servicio
+      this.http.getnotifications(localStorage.getItem('email')) // Obtener las notificaciones del servicio
       .subscribe(data =>{
         this.contracts = data;
       });
@@ -36,8 +36,20 @@ export class NotificationsComponent implements OnInit {
       });    
     }    
   }
-  selectednotification(){
-    this.router.navigate(['/decisionservice']);
+  selectedservice(i : any){
+    
+    if (this.contracts[i].user === localStorage.getItem('email')){//Si el usuario en sesión es quien soicitó ese servicio
+      return;
+    }
+    else{//Si el usuario en sesión es el prestador de servicios 
+      localStorage.setItem('notiuser',this.contracts[i].user);
+      localStorage.setItem('noticompany',this.contracts[i].company);
+      localStorage.setItem('notidate',this.contracts[i].date);
+
+      this.router.navigate(['/decisionservice']);
+    }
+
+    
   }
 
 }

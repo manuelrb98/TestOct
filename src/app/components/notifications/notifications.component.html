@@ -17,8 +17,8 @@
           
         </thead>
         <tbody>
-          <tr *ngFor="let contract of contracts">
-            <th><button (click)="selectedservice()">{{contracts.user}}{{contracts.company}}{{contracts.date}}</button></th>
+          <tr *ngFor="let contract of contracts; let i=index">
+            <th><button (click)="selectedservice(i)">{{contracts.user}}{{contracts.company}}{{contracts.date}}</button></th>
             
           </tr>
            

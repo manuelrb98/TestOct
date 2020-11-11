@@ -22,8 +22,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let history of histories">
-            <th><button (click)="selectedservice()">{{history.id}}</button></th>
+          <tr *ngFor="let history of histories ; let i=index">
+            <th><button (click)="selectedservice(i)">{{history.id}}</button></th>
             <td>{{history.service}}</td>
             <td>{{history.worker}}</td>
             <td>{{history.score}}</td>

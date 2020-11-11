@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { user } from '../Model/user';
 import { service_options } from '../Model/service_options.model';
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 import { register } from '../Model/register.model';
 import { search } from '../Model/search.model';
 import { company } from '../Model/company.model';
@@ -60,11 +60,11 @@ export class MainServiceService {
 
   getmyUser(email){
     //Obtener información del usuario en sesión actualmente
-    return this.http.get<register>(this.Url,email);
+    return this.http.get<register>(this.Url,{params: new HttpParams().set('email',email)});
   }
   gethistory(email: any){
     //Obtener el historial de servicios del usuario en sesión
-    return this.http.get<history[]>(this.Url, email); 
+    return this.http.post<history[]>(this.Url, email); 
   }
   /*getservicehistorycard(id: any){
     //Obtener el historial de servicios del usuario en sesión
@@ -73,15 +73,15 @@ export class MainServiceService {
   /*getcategories(){
     return this.http.get<category[]>(this.Url); 
   }*/
-   getnotifications(){
-    return this.http.get<contract[]>(this.Url); 
+   getnotifications(email: any){
+    return this.http.get<contract[]>(this.Url, {params: new HttpParams().set('email',email)}); 
   }
   getpaymentypes(){
     return this.http.get<[]>(this.Url); 
   }
   setcontract(contract : contract_service){
     //Agendar servicio 
-    return this.http.post<service>(this.Url, contract); 
+    return this.http.post<contract_service>(this.Url, contract); 
   }
 
 }

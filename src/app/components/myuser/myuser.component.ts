@@ -15,7 +15,7 @@ export class MyuserComponent implements OnInit {
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
-  datos: HttpEvent<register>;
+  datos: register;
   
   constructor(private router: Router, private eventEmitterService: EventEmitterService , private mainservice:MainServiceService) { }
 

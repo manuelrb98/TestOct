@@ -42,10 +42,10 @@ export class ServiceHistoryCardComponent implements OnInit {
       });    
     }    
   }
-  showworker(){
+  /*showworker(){
     //Ir al detalle del prestador del servicio 
     this.router.navigate(['/worker']);
-  }
+  }*/
  
    
   }

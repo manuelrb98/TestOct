@@ -15,7 +15,7 @@ export class HistoryComponent implements OnInit {
   imgHeader: string = "assets/images/Header.png";
   imgHamburguer: string = "assets/images/Hamburguer.png";
 
-  histories: HttpEvent<history[]>;
+  histories: history[];
   history_card: history;
   constructor(private eventEmitterService: EventEmitterService , private http:MainServiceService, private router: Router) { }
 
@@ -23,6 +23,29 @@ export class HistoryComponent implements OnInit {
     this.opened = !this.opened;
   
     }
+
+    selectedservice(i: any){//Cuando se selecciona un item del historial
+
+      //Guardar los datos del item para mostrarlos en el detalle del servicio
+      localStorage.setItem('hid', this.histories[i].id);
+      localStorage.setItem('hservice',this.histories[i].service);
+      localStorage.setItem('hworker',this.histories[i].worker);
+      localStorage.setItem('hscore',this.histories[i].score);
+      localStorage.setItem('hcomments',this.histories[i].comments);
+      
+      
+  
+      //Ir al detalle del registro del historial
+      this.router.navigate(['/servicehistorycard']);
+    }
+
+    /*selectedworker(i: any){//Cuando se selecciona un prestador de servicios del historial
+
+      //Ir al detalle del registro del historial
+      this.router.navigate(['/worker']);
+    }*/
+
+
     ngOnInit() { 
      
   
@@ -39,19 +62,6 @@ export class HistoryComponent implements OnInit {
     }    
   }
 
-  selectedservice(){//Cuando se selecciona un item del historial
 
-    //Guardar los datos del item para mostrarlos en el detalle del servicio
-    localStorage.setItem('hid','selectedid');
-    localStorage.setItem('hservice','selectedservice');
-    localStorage.setItem('hworker','selectedworker');
-    localStorage.setItem('hscore','selectedscore');
-    localStorage.setItem('hcomments','selectedcomments');
-    
-    
-
-    //Ir al detalle del registro del historial
-    this.router.navigate(['/servicehistorycard']);
-  }
 
 } 
