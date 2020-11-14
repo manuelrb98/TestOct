@@ -29,9 +29,10 @@ export class WorkerRegisterComponent implements OnInit {
 
       //Seleccionar una compañía para convertirse en prestador de servicios
       let collaboratorobj = new company_collaborator();
-      collaboratorobj.email = localStorage.getItem('email');
+      collaboratorobj.email = this.email;
       collaboratorobj.company = this.companies[i].name;
-      this.http.joincompany(collaboratorobj); //Enviar la compañía y el usuario al servicio
+
+      if(this.http.joincompany(collaboratorobj)){ //Enviar la compañía y el usuario al servicio
 
       
       this.toastr.success('Has sido agregado a la compañía!', 'Felicidades', {
@@ -42,6 +43,7 @@ export class WorkerRegisterComponent implements OnInit {
       });
       this.router.navigate(['/home']);
     }
+  }
 
 
     ngOnInit() { 

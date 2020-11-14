@@ -45,17 +45,18 @@ export class CompanyRegisterComponent implements OnInit {
     console.log(companyobj); //Se obtienen los datos de la compañía
     console.log(this.datarray); //Se obtienen los datos de los servicios
 
-    this.mainservice.createcompany(companyobj);
-    this.mainservice.addservices(this.datarray);
-    
-     
-    this.toastr.success('La compañía ha sido creada!', 'Felicidades', {
-      positionClass: 'toast-bottom-right',
-      progressBar: true,
-      progressAnimation: 'decreasing',
-      timeOut: 5000
-    });
-    this.router.navigate(['/home']);
+    if(this.mainservice.createcompany(companyobj)){//Si se creó la compañía exitosamente
+      if(this.mainservice.addservices(this.datarray)){
+
+        this.toastr.success('La compañía ha sido creada!', 'Felicidades', {
+          positionClass: 'toast-bottom-right',
+          progressBar: true,
+          progressAnimation: 'decreasing',
+          timeOut: 5000
+        });
+        this.router.navigate(['/home']);
+      }
+    }
   }
   }
 
